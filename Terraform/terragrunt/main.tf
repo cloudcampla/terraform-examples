@@ -16,3 +16,7 @@ resource "aws_instance" "cloudcamp" {
     bootcamp = "devops"
   }
 }
+
+terraform {
+  backend "s3" {}
+}

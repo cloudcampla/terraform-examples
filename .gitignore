@@ -2,7 +2,11 @@
 **/.terraform/*
 **/.terraform
 
+**/.terragrunt-cache/*
+**/.terragrunt-cache
 
+.terraform.lock.hcl
+**/.terraform.lock.hcl
 # .tfstate files
 *.tfstate
 *.tfstate.*
