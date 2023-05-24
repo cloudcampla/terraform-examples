@@ -1,13 +1,34 @@
 // main.tf dentro del módulo
+
 provider "aws" {
-  region = "us-west-1"
+  region = "us-east-1"
+}
+
+data "aws_ami" "amzn-linux-2023-ami" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023.*-x86_64"]
+  }
 }
 
 resource "aws_instance" "cloudcamp" {
-  ami           = var.instance_type
-  instance_type = "t2.micro"
+  ami           = data.aws_ami.amzn-linux-2023-ami.id
+  instance_type = var.instance_type
 
   tags = {
-    Name = "Ejemplo Instancia con modulos"
+    bootcamp = "devops"
+  }
+}
+
+terraform {
+  backend "s3" {
+    bucket         = "cloudcamp-terraform-state"
+    key            = "modulo-cloudcamp/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "cloudcamp-ddb-lock"
   }
 }
