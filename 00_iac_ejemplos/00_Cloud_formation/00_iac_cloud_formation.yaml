@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation Template for S3 bucket and EC2
+
+Resources:
+  Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: 'cloud-camp-bucket-123123'
+  Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: "t2.micro"
+      ImageId: 'ami-05548f9cecf47b442'
+      Tags:
+        - Key: bootcamp
+          Value: devops
