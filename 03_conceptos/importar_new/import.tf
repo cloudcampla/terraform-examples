@@ -4,5 +4,5 @@ provider "aws" {
 
 import {
   to = aws_security_group.securitygroup
-  id = ""
+  id = "sg-0543e7ad05c477b1f"
 }
