@@ -5,6 +5,6 @@ output "instance_id" {
 }
 
 output "ip" {
-  description = "EL Ip  de la instancia creada"
+  description = "La IP de la instancia creada"
   value = aws_instance.cloudcamp.private_ip
 }

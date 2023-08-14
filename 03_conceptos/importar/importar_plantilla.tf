@@ -3,10 +3,10 @@ provider "aws" {
 }
 
 resource "aws_instance" "cloudcamp" {
-  ami = "ami-0889a44b331db0194"
+  ami           = "ami-0889a44b331db0194"
   instance_type = "t2.micro"
   tags = {
     bootcamp = "devops"
-    Name= "Netflix"
+    Name     = "DisneyPlus"
   }
 }
