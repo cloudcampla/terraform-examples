@@ -22,13 +22,3 @@ resource "aws_instance" "cloudcamp" {
     bootcamp = "devops"
   }
 }
-
-terraform {
-  backend "s3" {
-    bucket         = "cloudcamp-terraform-state"
-    key            = "modulo-cloudcamp/terraform.tfstate"
-    region         = "us-east-1"
-    encrypt        = true
-    dynamodb_table = "cloudcamp-ddb-lock"
-  }
-}
