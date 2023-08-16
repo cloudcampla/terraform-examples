@@ -7,5 +7,5 @@ terraform {
 }
 
 inputs = {
-  bucket_name = "dev-bucket-cloudcamp"
+  bucket_name = "dev-bucket-cloudcamp-001"
 }
