@@ -15,5 +15,6 @@ resource "aws_instance" "cloudcamp" {
   tags = {
     bootcamp = "devops"
     environment = terraform.workspace
+    Name = "Cloud-Camp-${terraform.workspace}"
   }
 }
