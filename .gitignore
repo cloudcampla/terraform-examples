@@ -2,6 +2,8 @@
 **/.terraform/*
 **/.terraform
 
+**/.DS_Store
+
 **/.terragrunt-cache/*
 **/.terragrunt-cache
 
