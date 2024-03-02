@@ -1,32 +1,22 @@
-#!/usr/bin/env python
-
 from constructs import Construct
 from cdktf import App, TerraformStack
-from cdktf_cdktf_provider_docker.image import Image
-from cdktf_cdktf_provider_docker.container import Container
-from cdktf_cdktf_provider_docker.provider import DockerProvider
-
+from imports.aws.provider import AwsProvider
+from imports.aws.s3_bucket import S3Bucket
 
 class MyStack(TerraformStack):
     def __init__(self, scope: Construct, ns: str):
         super().__init__(scope, ns)
 
-        DockerProvider(self, 'docker')
+        # Define AWS provider using the AwsProvider class
+        AwsProvider(self, "AWS", region="us-east-1")
 
-        docker_image = Image(self, 'nginxImage',
-                             name='nginx:latest',
-                             keep_locally=False)
-
-        Container(self, 'nginxContainer',
-                  name='tutorial',
-                  image=docker_image.name,
-                  ports=[{
-                      'internal': 80,
-                      'external': 8000
-                  }])
-
+        # Define an S3 bucket using the S3Bucket class
+        S3Bucket(self, "MyBucket",
+                 bucket="cloud-camp-bucket-tests",
+                 acl="private"
+                 )
 
 app = App()
-MyStack(app, "learn-cdktf-docker")
+MyStack(app, "my-cdktf-project")
 
 app.synth()

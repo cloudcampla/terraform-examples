@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: CloudFormation Template for S3 bucket and EC2
+Description: CloudFormation Template for S3 bucket and EC2 - NON PORTABLE
 
 Resources:
   Bucket:
