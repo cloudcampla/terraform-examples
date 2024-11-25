@@ -1,3 +1,14 @@
+terraform {
+  cloud {
+
+    organization = "ivan_cloud"
+
+    workspaces {
+      name = "modules"
+    }
+  }
+}
+
 module "vpc" {
   source = "./modules/vpc"
   cidr = var.cidr
