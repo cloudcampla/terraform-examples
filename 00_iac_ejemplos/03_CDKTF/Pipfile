@@ -7,7 +7,8 @@ verify_ssl = true
 python_version = "3"
 
 [packages]
-cdktf = "~=0.20.4"
+cdktf = "~=0.20.10"
 pytest = "*"
 cdktf-cdktf-provider-docker = "~=11.0.0"
-cdktf-cdktf-provider-aws = "*"
+
+[dev-packages]
